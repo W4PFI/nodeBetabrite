@@ -4,6 +4,7 @@
   "description": "Access your Betabrite LED sign from js",
   "main": "index.js",
   "scripts": {
+    "betaBrite": "node ./build/betaMain.js",
     "build": "babel src -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
