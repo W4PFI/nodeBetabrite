@@ -4,13 +4,14 @@
   "description": "Access your Betabrite LED sign from js",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/W4PFI/nodeBetabrite.git"
   },
-  "author": "",
+  "author": "Patrick Fink <kk4dhm@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/W4PFI/nodeBetabrite/issues"
@@ -18,5 +19,18 @@
   "homepage": "https://github.com/W4PFI/nodeBetabrite#readme",
   "dependencies": {
     "serialport": "^7.1.5"
-  }
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "keywords": [
+    "A",
+    "package",
+    "to",
+    "access",
+    "the",
+    "betaBrite",
+    "signage"
+  ]
 }
