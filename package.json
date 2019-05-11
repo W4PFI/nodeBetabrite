@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/W4PFI/nodeBetabrite#readme",
   "dependencies": {
+    "newsapi": "^2.4.0",
     "serialport": "^7.1.5"
   },
   "devDependencies": {

@@ -38,7 +38,7 @@ export default class BetaMessage {
 
     getMessage() {
         console.log ("Called getMessage")
-        var out = this.message + String.fromCharCode(0o4)
+        var out = this.message.substring(0,20000) + String.fromCharCode(0o4)
         console.log ("Message " + out)
         return out
      }
@@ -48,7 +48,7 @@ export default class BetaMessage {
     }
 
     addMode(mode) {
-        console.log ("Adding color " + mode)
+        console.log ("Adding mode " + mode)
         this.message = this.message.concat(String.fromCharCode(27) + " " + mode)
     }
 
@@ -58,8 +58,32 @@ export default class BetaMessage {
     }
 
     addText(text) {
+        //text = text.replace(/[$:'.,-]/g, '')
+        //text = text.replace("20", "  ")
         console.log ("Adding text " + text)
         this.message = this.message.concat(text)
+    }
+
+    addDay() {
+        let dayString = String.fromCharCode(11)+"9"
+        this.message = this.message.concat(dayString)
+    }
+
+    addDate() {
+        let dateString = String.fromCharCode(11) + "0"
+        this.message = this.message.concat(dateString)
+    }
+
+    addTime() {
+        let timeString = String.fromCharCode(19)
+        this.message = this.message.concat
+    }
+
+    addWord(count) {
+        for (let i=0; i<count; i++) {
+            this.message =  this.message.concat(" word " + i  )
+        }
+        
     }
 
 
