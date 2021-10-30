@@ -1,2 +1,5 @@
 node_modules
+doit.sh
 ledSign.sh
+package-lock.json
+
