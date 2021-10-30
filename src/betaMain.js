@@ -114,22 +114,23 @@ function displayStonks() {
         betaMessage.addText(' ')
         betaMessage.addText('(' + i.changePercent + '%)')
         betaMessage.addText(' ')
-        var lowDayPrice = parseFloat(i.dayRange.split(' ')[0]);
-        var highDayPrice = parseFloat(i.dayRange.split(' ')[2]);
-        var low52DayPrice = parseFloat(i.fiftyTwoWeekRange.split(' ')[0]);
-        var high52DayPrice = parseFloat(i.fiftyTwoWeekRange.split(' ')[2]);
+        if (!i.ticker.includes('^')) {
+          var lowDayPrice = parseFloat(i.dayRange.split(' ')[0].replace(/,/g, ''));
+          var highDayPrice = parseFloat(i.dayRange.split(' ')[2].replace(/,/g, ''));
+          var low52DayPrice = parseFloat(i.fiftyTwoWeekRange.split(' ')[0].replace(/,/g, ''));
+          var high52DayPrice = parseFloat(i.fiftyTwoWeekRange.split(' ')[2].replace(/,/g, ''));
         
-        if (parseFloat(i.price)>=highDayPrice) betaMessage (' [DAILY HIGH] ')
-        if (parseFloat(i.price)<=lowDayPrice) betaMessage (' [DAILY LOW] ')
-        if (parseFloat(i.price)>=high52DayPrice) betaMessage (' [52 WEEK HIGH] ')
-        if (parseFloat(i.price)<=low52DayPrice) betaMessage (' [52 WEEK LOW] ')
-      
+          if (parseFloat(i.price)>=highDayPrice) betaMessage (' [DAILY HIGH] ')
+          if (parseFloat(i.price)<=lowDayPrice) betaMessage (' [DAILY LOW] ')
+          if (parseFloat(i.price)>=high52DayPrice) betaMessage (' [52 WEEK HIGH] ')
+          if (parseFloat(i.price)<=low52DayPrice) betaMessage (' [52 WEEK LOW] ')
+        }
       })
 
       port.write(betaMessage.getMessage())
       port.drain()
       }).catch ((error) => {
-        console.log(responseTransformer.transformError(error));
+        console.log(error);
       });
   
 }
